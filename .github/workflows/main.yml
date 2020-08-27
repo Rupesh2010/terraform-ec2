@@ -36,4 +36,5 @@ jobs:
           # You may pin to the exact commit or the version.
           # uses: clarkio/snyk-cli-action@c028baebaad380b01f7cf230a3ef2829a5957729
         uses: clarkio/snyk-cli-action@1.0.0   
+      - name: Run Synk Test  
         run: synk test 
