@@ -74,8 +74,8 @@ jobs:
     # Install the latest version of Terraform Compliance
     - name: Install Terraform-Compliance  
       run: |
-        sudo pip install terraform-compliance
-        pip install virtualenv
+        sudo pip3 install terraform-compliance
+        pip3 install virtualenv
         . venv/bin/activate
       
     # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
