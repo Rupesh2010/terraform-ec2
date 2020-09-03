@@ -71,12 +71,6 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: us-east-1
 
-    # Install the latest version of Terraform Compliance
-    - name: Install Terraform-Compliance  
-      run: |
-        sudo pip3 install terraform-compliance
-        pip3 install virtualenv
-        . venv/bin/activate
       
     # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
     - name: Setup Terraform
@@ -94,7 +88,10 @@ jobs:
       run: |
        cd "east/how to create ec2 instance/"
        terraform plan -out=plan.out
-       terraform-compliance -p plan.out -f .
+    - name: Terraform Compliance
+      uses: docker://eerkunt/terraform-compliance
+      with: 
+        args: -f ./east/how to create ec2 instance/ -p ./plan.out   
        
         
 
