@@ -71,7 +71,13 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: us-east-1
 
-
+    # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
+    - name: Install Teraform Compliance
+      run: |
+        pip3 install terraform-compliance
+        pip3 install virtualenv
+        . venv/bin/activate
+      
     # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v1
@@ -87,13 +93,9 @@ jobs:
     - name: Terraform Plan
       run: |
        cd "east/how to create ec2 instance/"
-       terraform plan 
+       terraform plan -out=plan.out
+       terraform-compliance -p plan.out -f .
+       
         
 
-      # On push to master, build or change infrastructure according to Terraform configuration files
-      # Note: It is recommended to set up a required "strict" status check in your repository for "Terraform Cloud". See the documentation on "strict" required status checks for more information: https://help.github.com/en/github/administering-a-repository/types-of-required-status-checks
-    - name: Terraform Destroy
-      if: github.ref == 'refs/heads/master' && github.event_name == 'push'
-      run: |
-       cd "east/how to create ec2 instance/"
-       terraform destroy -auto-approve
+      
