@@ -86,12 +86,15 @@ jobs:
     # Generates an execution plan for Terraform
     - name: Terraform Plan
       run: |
+       set -x  
        cd "east/how to create ec2 instance/"
        terraform plan -out=plan.out
+       pwd
+       ls plan.out
     - name: Terraform Compliance
       uses: docker://eerkunt/terraform-compliance
       with: 
-        args: -f ./east/"how to create ec2 instance"/ -p ./plan.out   
+        args: -f ./east/"how to create ec2 instance"/ -p plan.out   
        
         
 
