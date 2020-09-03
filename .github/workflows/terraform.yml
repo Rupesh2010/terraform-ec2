@@ -91,7 +91,7 @@ jobs:
     - name: Terraform Compliance
       uses: docker://eerkunt/terraform-compliance
       with: 
-        args: -f ./east/how to create ec2 instance/ -p ./plan.out   
+        args: -f ./east/"how to create ec2 instance"/ -p ./plan.out   
        
         
 
