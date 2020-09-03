@@ -83,7 +83,7 @@ jobs:
     - name: Terraform Init
       run: |
        cd "east/how to create ec2 instance/"
-       terraform init
+       terraform init -reconfigure
 
     # Generates an execution plan for Terraform
     - name: Terraform Plan
