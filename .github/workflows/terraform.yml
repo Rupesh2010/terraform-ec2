@@ -91,12 +91,9 @@ jobs:
        terraform plan -out=plan.out
        pwd
        ls plan.out
-    - name: Terraform Compliance
       uses: docker://eerkunt/terraform-compliance
       with: 
-        args: -f ./east/"how to create ec2 instance"/ -p plan.out   
-       
-      working-directory: ./east/"how to create ec2 instance"  
+        args: -f ./east/"how to create ec2 instance"/ -p plan.out    
         
 
       
