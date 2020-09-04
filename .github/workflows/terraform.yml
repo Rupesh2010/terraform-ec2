@@ -52,7 +52,7 @@ on:
 jobs:
   terraform:
     name: 'Terraform'
-    runs-on: ubuntu-latest
+    runs-on: runner1
 
     # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
     defaults:
@@ -95,7 +95,6 @@ jobs:
        ls plan.out
     - name: Terraform Compliance  
       run: |
-        pip install gitpython
         pip install terraform-compliance
         pip install virtualenv
         virtualenv venv
