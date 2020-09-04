@@ -100,7 +100,8 @@ jobs:
         pip3 install virtualenv
         virtualenv venv
         . venv/bin/activate
-        set +x
-        terraform-compliance -f ./east/"how to create ec2 instance"/ -p ./east/"how to create ec2 instance"/plan.out       
+        terraform show -json plan.out > plan.out.json
+        cat plan.out.json |head -2 |tail -1 > plan.out.json
+        terraform-compliance -f ./east/"how to create ec2 instance"/ -p ./east/"how to create ec2 instance"/plan.out.json       
 
       
