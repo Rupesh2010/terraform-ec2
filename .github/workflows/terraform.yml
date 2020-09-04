@@ -95,9 +95,9 @@ jobs:
        ls plan.out
     - name: Terraform Compliance  
       run: |
-        pip install IPython
-        pip install terraform-compliance
-        pip install virtualenv
+        pip3 install IPython
+        pip3 install terraform-compliance
+        pip3 install virtualenv
         virtualenv venv
         . venv/bin/activate
         terraform-compliance -f ./east/"how to create ec2 instance"/ -p ./east/"how to create ec2 instance"/plan.out       
