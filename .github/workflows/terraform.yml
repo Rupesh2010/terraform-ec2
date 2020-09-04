@@ -94,9 +94,11 @@ jobs:
        pwd
        ls plan.out
     - name: Terraform Compliance  
-      uses: docker://eerkunt/terraform-compliance
-      with: 
-        args: -f ./east/"how to create ec2 instance"/ -p ./east/"how to create ec2 instance"/plan.out    
-        
+      run: |
+        sudo pip install terraform-compliance
+        pip install virtualenv
+        virtualenv venv
+        . venv/bin/activate
+        terraform-compliance -f ./east/"how to create ec2 instance"/ -p ./east/"how to create ec2 instance"/plan.out       
 
       
