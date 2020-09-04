@@ -95,6 +95,7 @@ jobs:
        ls plan.out
     - name: Terraform Compliance  
       run: |
+        sudo pip install gitpython
         sudo pip install terraform-compliance
         pip install virtualenv
         virtualenv venv
