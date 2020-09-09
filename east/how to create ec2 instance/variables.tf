@@ -24,7 +24,7 @@ variable "instance_type" {
 }
 
 variable "key_name" {
-  default = "ashok2"
+  default = "ashok"
 }
 
 variable "vpc" {
