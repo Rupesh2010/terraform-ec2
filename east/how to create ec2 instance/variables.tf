@@ -12,7 +12,7 @@ variable "name" {
 #}
 
 variable "subnets" {
-  default = "subnet-10c8635d"
+  default = "subnet-4c2e5201"
 }
 
 variable "availability_zones" {
@@ -24,11 +24,11 @@ variable "instance_type" {
 }
 
 variable "key_name" {
-  default = "ashok"
+  default = "rupesh"
 }
 
 variable "vpc" {
-  default = "vpc-26e8dc5c"
+  default = "vpc-b8c039c5"
 }
  
 
