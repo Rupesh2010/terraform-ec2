@@ -7,6 +7,7 @@ resource "aws_kms_alias" "xfs-alias" {
 }
 
 resource "aws_kms_key" "xfs" {
+  count                   = "${var.env == dev ? 1 : 0}"
   description             = "KMS key for xfs app"
   deletion_window_in_days = 10
   policy = "${data.aws_iam_policy_document.policy.json}"
