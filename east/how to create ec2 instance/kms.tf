@@ -1,5 +1,10 @@
 data "aws_caller_identity" "current" {}
 
+resource "aws_kms_alias" "xfs-alias" {
+  name          = "alias/xfs-alias"
+  target_key_id = aws_kms_key.xfs.key_id
+}
+
 resource "aws_kms_key" "xfs" {
   description             = "KMS key for xfs app"
   deletion_window_in_days = 10
