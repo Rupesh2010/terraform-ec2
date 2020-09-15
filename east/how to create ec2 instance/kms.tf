@@ -1,13 +1,13 @@
 data "aws_caller_identity" "current" {}
 
 resource "aws_kms_alias" "alias" {
-  count         = "${var.env == dev ? 1 : 0}"
+  count         = "${var.env ? 1 : 0}"
   name          = "alias/${var.env}-alias"
   target_key_id = aws_kms_key.abc.key_id
 }
 
 resource "aws_kms_key" "abc" {
-  count                   = "${var.env == dev ? 1 : 0}"
+  count                   = "${var.env ? 1 : 0}"
   description             = "KMS key for abc app"
   deletion_window_in_days = 10
   policy = "${data.aws_iam_policy_document.policy.json}"
