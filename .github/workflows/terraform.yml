@@ -95,7 +95,7 @@ jobs:
        ls plan.out
 
     - name: Terraform Compliance
-       run: |
+      run: |
          pip3 install IPython
          pip3 install terraform-compliance
          pip3 install virtualenv
