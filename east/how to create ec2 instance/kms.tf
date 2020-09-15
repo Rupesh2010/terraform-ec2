@@ -1,14 +1,14 @@
 data "aws_caller_identity" "current" {}
 
-resource "aws_kms_alias" "xfs-alias" {
+resource "aws_kms_alias" "alias" {
   count         = "${var.env == dev ? 1 : 0}"
-  name          = "alias/xfs-alias"
-  target_key_id = aws_kms_key.xfs.key_id
+  name          = "alias/${var.env}-alias"
+  target_key_id = aws_kms_key.abc.key_id
 }
 
-resource "aws_kms_key" "xfs" {
+resource "aws_kms_key" "abc" {
   count                   = "${var.env == dev ? 1 : 0}"
-  description             = "KMS key for xfs app"
+  description             = "KMS key for abc app"
   deletion_window_in_days = 10
   policy = "${data.aws_iam_policy_document.policy.json}"
 }
