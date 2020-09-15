@@ -3,7 +3,7 @@ data "aws_caller_identity" "current" {}
 resource "aws_kms_alias" "alias" {
   count         = var.env ? 1 : 0
   name          = "alias/${var.env}-alias"
-  target_key_id = aws_kms_key.abc.key_id
+  target_key_id = "${aws_kms_key.abc.key_id}"
 }
 
 resource "aws_kms_key" "abc" {
