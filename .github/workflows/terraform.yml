@@ -95,6 +95,7 @@ jobs:
 
     - name: Terraform Compliance
       run: |
+         set -x 
          pip3 install IPython
          pip3 install terraform-compliance
          pip3 install virtualenv
