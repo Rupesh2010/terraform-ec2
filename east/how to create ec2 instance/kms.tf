@@ -1,6 +1,7 @@
 data "aws_caller_identity" "current" {}
 
 resource "aws_kms_alias" "xfs-alias" {
+  count         = "${var.env == dev ? 1:0}"
   name          = "alias/xfs-alias"
   target_key_id = aws_kms_key.xfs.key_id
 }
