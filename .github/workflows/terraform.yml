@@ -63,7 +63,7 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v2
-      
+
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v1
       with:
@@ -71,31 +71,31 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: us-east-1
 
-      
+
     # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v1
       with:
-        terraform_version: 0.13.2  
-    
+        terraform_version: 0.13.2
+
 
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
     - name: Terraform Init
       run: |
-       cd ./east/"how to create ec2 instance"/ 
-       terraform init 
-       
+       cd ./east/"how to create ec2 instance"/
+       terraform init
+
     # Generates an execution plan for Terraform
     - name: Terraform Plan
       run: |
-       set -x  
+       set -x
        cd "east/how to create ec2 instance/"
        terraform plan -out=plan.out
        pwd
        ls plan.out
-       
-    - name: Terraform Compliance  
-       run:|
+
+    - name: Terraform Compliance
+       run: |
          pip3 install IPython
          pip3 install terraform-compliance
          pip3 install virtualenv
@@ -103,11 +103,10 @@ jobs:
          . venv/bin/activate
          terraform show -json plan.out > plan.out.json
          cat plan.out.json |head -2 |tail -1 > plan.out.json
-         terraform-compliance -f ./east/"how to create ec2 instance"/ -p ./east/"how to create ec2 instance"/plan.out.json 
+         terraform-compliance -f ./east/"how to create ec2 instance"/ -p ./east/"how to create ec2 instance"/plan.out.json
+
     - name: Terraform Apply
       run: |
-       set -x  
+       set -x
        cd "east/how to create ec2 instance/"
        terraform apply -auto-approve
-
-      
