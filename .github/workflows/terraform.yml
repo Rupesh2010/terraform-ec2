@@ -93,16 +93,16 @@ jobs:
        terraform plan -out=plan.out
        pwd
        ls plan.out
-#     - name: Terraform Compliance  
-#       run: |
-#         pip3 install IPython
-#         pip3 install terraform-compliance
-#         pip3 install virtualenv
-#         virtualenv venv
-#         . venv/bin/activate
-#         terraform show -json plan.out > plan.out.json
-#         cat plan.out.json |head -2 |tail -1 > plan.out.json
-#         terraform-compliance -f ./east/"how to create ec2 instance"/ -p ./east/"how to create ec2 instance"/plan.out.json 
+     - name: Terraform Compliance  
+       run: |
+         pip3 install IPython
+         pip3 install terraform-compliance
+         pip3 install virtualenv
+         virtualenv venv
+         . venv/bin/activate
+         terraform show -json plan.out > plan.out.json
+         cat plan.out.json |head -2 |tail -1 > plan.out.json
+         terraform-compliance -f ./east/"how to create ec2 instance"/ -p ./east/"how to create ec2 instance"/plan.out.json 
     - name: Terraform Apply
       run: |
        set -x  
