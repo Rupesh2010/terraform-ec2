@@ -30,5 +30,8 @@ variable "key_name" {
 variable "vpc" {
   default = "vpc-b8c039c5"
 }
- 
+
+variable "env" {
+  default = "dev"
+}
 
