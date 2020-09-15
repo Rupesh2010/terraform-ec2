@@ -7,7 +7,7 @@ resource "aws_kms_alias" "alias" {
 }
 
 resource "aws_kms_key" "abc" {
-  count                   = var.env ? 1 : 0
+  # count                   = var.env ? 1 : 0
   description             = "KMS key for abc app"
   deletion_window_in_days = 10
   policy = "${data.aws_iam_policy_document.policy.json}"
