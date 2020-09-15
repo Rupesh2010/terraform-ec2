@@ -100,7 +100,7 @@ jobs:
          pip3 install terraform-compliance
          pip3 install virtualenv
          find ~ -name virtualenv
-         /home/runner/.local/bin/virtualenv venv
+         virtualenv venv
          . venv/bin/activate
          terraform show -json plan.out > plan.out.json
          cat plan.out.json |head -2 |tail -1 > plan.out.json
