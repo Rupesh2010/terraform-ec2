@@ -90,17 +90,15 @@ jobs:
        set -x
        cd "east/how to create ec2 instance/"
        terraform plan -out=plan.out
-       pwd
-       ls plan.out
-       pip3 install IPython
-       pip3 install terraform-compliance
-       pip3 install virtualenv
-       find ~ -name virtualenv
-       virtualenv venv
-       . venv/bin/activate
-       terraform show -json plan.out > plan.out.json
-       cat plan.out.json |head -2 |tail -1 > plan.out.json
-       terraform-compliance -f . -p plan.out.json
+       # pip3 install IPython
+       # pip3 install terraform-compliance
+       # pip3 install virtualenv
+       # find ~ -name virtualenv
+       # virtualenv venv
+       # . venv/bin/activate
+       # terraform show -json plan.out > plan.out.json
+       # cat plan.out.json |head -2 |tail -1 > plan.out.json
+       # terraform-compliance -f . -p plan.out.json
 
     - name: Terraform Apply
       run: |
