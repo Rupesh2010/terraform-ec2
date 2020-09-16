@@ -100,7 +100,7 @@ jobs:
        . venv/bin/activate
        terraform show -json plan.out > plan.out.json
        cat plan.out.json |head -2 |tail -1 > plan.out.json
-       terraform-compliance -f . -p ./east/"how to create ec2 instance"/plan.out.json
+       terraform-compliance -f . -p plan.out.json
 
     - name: Terraform Apply
       run: |
