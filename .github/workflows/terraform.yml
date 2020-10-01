@@ -73,7 +73,6 @@ jobs:
     - name: tfsec
       uses: reviewdog/action-tfsec@master
       with:
-        github_token: ${{ secrets.github_token }}
         working_directory: "./east/"how to create ec2 instance"/" # Change working directory
         reporter: github-pr-review # Change reporter
         fail_on_error: "true" # Fail action if errors are found
