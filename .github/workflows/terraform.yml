@@ -71,15 +71,10 @@ jobs:
         aws-region: us-east-1
 
     - name: tfsec
-      uses: reviewdog/action-tfsec@master
+      uses: triat/terraform-security-scan@v1
       with:
         github_token: ${{ secrets.github_token }}
         working_directory: "./east/how to create ec2 instance/" 
-        reporter: github-pr-review 
-        fail_on_error: "true"
-        filter_mode: "nofilter" 
-        flags: "" 
-
 
     # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
     - name: Setup Terraform
