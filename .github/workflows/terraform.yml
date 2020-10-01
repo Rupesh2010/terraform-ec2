@@ -70,6 +70,16 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: us-east-1
 
+    - name: tfsec
+      uses: reviewdog/action-tfsec@master
+      with:
+          github_token: ${{ secrets.github_token }}
+          working_directory: "./east/"how to create ec2 instance"/" # Change working directory
+          reporter: github-pr-review # Change reporter
+          fail_on_error: "true" # Fail action if errors are found
+          filter_mode: "nofilter" # Check all files, not just the diff
+          flags: "" # Optional
+
 
     # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
     - name: Setup Terraform
